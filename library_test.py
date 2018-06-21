@@ -20,6 +20,7 @@ class TestCase(unittest.TestCase):
     # First unit test; prove that if we scan NUM_CORPUS looking for mixed_ordinals,
     # we find "5th" and "1st".
     def test_mixed_ordinals(self):
+        
         self.assert_extract(NUM_CORPUS, library.mixed_ordinals, '5th', '1st')
 
     # Second unit test; prove that if we look for integers, we find four of them.
@@ -43,7 +44,8 @@ class TestCase(unittest.TestCase):
         self.assert_extract("I was born on 25 Jan 2017.", library.dates_human, '25 Jan 2017')
 
     # failing tests
-    def match_complex_dates(self):
+    def test_match_complex_dates(self):
+        print(library.complex_date_time)
         ''' dates with time stamps with minute '''
         self.assert_extract("I was born on 2008-09-15T15:53.", library.complex_date_time, '2008-09-15T15:53')
 
@@ -74,7 +76,7 @@ class TestCase(unittest.TestCase):
         ''' with time stamp with seconds and three letter Timezone and T'''
         self.assert_extract("I was born on 2008-09-15T15:53:00 EST.", library.complex_date_time, '2008-09-15T15:53:00 EST')
     
-    def match_grouped_numbers(self):
+    def test_match_grouped_numbers(self):
         self.assert_extract("pay me 123,456,789.", library.grouped_number, '123,456,789')
         self.assert_extract("pay me 12,34,56,789.", library.grouped_number, '12,34,56,789')
 
