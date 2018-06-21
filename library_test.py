@@ -45,7 +45,6 @@ class TestCase(unittest.TestCase):
 
     # failing tests
     def test_match_complex_dates(self):
-        print(library.complex_date_time)
         ''' dates with time stamps with minute '''
         self.assert_extract("I was born on 2008-09-15T15:53.", library.complex_date_time, '2008-09-15T15:53')
 
